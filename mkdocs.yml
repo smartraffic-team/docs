@@ -1,1 +1,129 @@
-site_name: My Docs
+site_name: SmartTraffic — Documentação Técnica
+site_description: Sistema de controle de tráfego inteligente com visão computacional e Arduino
+site_author: Syncro
+# Ajuste quando tiver o repo público:
+# repo_url: https://github.com/smartraffic-team/docs
+# repo_name: smartraffic-team/docs
+
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search:
+      lang: pt
+  - mermaid2:
+      arguments:
+        theme: neutral
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+
+nav:
+  - Home: index.md
+  - Visão Geral:
+      - O que é o SmartTraffic: overview/what-is.md
+      - Arquitetura do Sistema: overview/architecture.md
+      - Fluxo de Dados: overview/data-flow.md
+      - Stack Tecnológica: overview/stack.md
+  - Começando:
+      - Pré-requisitos: getting-started/prerequisites.md
+      - Setup do Ambiente: getting-started/setup.md
+      - Executando o Protótipo: getting-started/running.md
+      - Simulação da Maquete: getting-started/mock-setup.md
+  - Módulos:
+      - Computer Vision (YOLO + OpenCV): modules/computer-vision.md
+      - Firmware Arduino (C++): modules/arduino.md
+      - API de Integração: modules/api.md
+      - Banco de Dados: modules/database.md
+      - Plataforma Desktop/Web: modules/platform.md
+      - Aplicação Mobile: modules/mobile.md
+  - Comunicação & Protocolos:
+      - Serial Python ↔ Arduino: protocols/serial.md
+      - Contrato da API: protocols/api-contract.md
+      - Modelo de Dados: protocols/data-model.md
+  - Lógica de Controle:
+      - Máquina de Estados do Semáforo: control/state-machine.md
+      - Limiar de Ativação (anti-flapping): control/thresholds.md
+      - Alternância por Inatividade: control/idle-switching.md
+      - Modo Manual: control/manual-mode.md
+  - Operação & Métricas:
+      - Interface Web Local: operations/web-interface.md
+      - Métricas e Contadores: operations/metrics.md
+      - Comparativo vs. Temporização Fixa: operations/benchmark.md
+  - Desenvolvimento:
+      - Estrutura dos Repositórios: dev/repos.md
+      - Padrões de Código: dev/coding-standards.md
+      - Git Workflow: dev/git-workflow.md
+      - CI/CD: dev/ci-cd.md
+  - Referência:
+      - Glossário: reference/glossary.md
+      - FAQ / Troubleshooting: reference/faq.md
+      - Decisões de Arquitetura (ADRs): reference/adr/index.md
+  - Equipe & Artefatos:
+      - Equipe: team.md
+      - Diagramas e Imagens: artefacts.md
+      - Links do Projeto: links.md

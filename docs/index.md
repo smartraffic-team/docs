@@ -26,3 +26,27 @@ flowchart LR
     C -->|aciona| D[Semáforo físico]
     B -->|status/contadores| E[Interface Web Local]
     E -->|modo manual| B
+```
+
+## Comece por aqui
+
+1. [Pré-requisitos](getting-started/prerequisites.md)
+2. [Setup do Ambiente](getting-started/setup.md)
+3. [Executando o Protótipo](getting-started/running.md)
+
+## Situação atual (resumo)
+
+- duas câmeras no app local;
+- controle local com fallback de segurança;
+- ingestão resiliente com fila SQLite;
+- API e banco operacionais;
+- dashboard integrado à API;
+- mobile ainda planejado no roadmap.
+
+## Leituras recomendadas
+
+- [Arquitetura do Sistema](overview/architecture.md)
+- [Máquina de Estados do Semáforo](control/state-machine.md)
+- [Limiar de Ativação (anti-flapping)](control/thresholds.md)
+- [Interface Web Local](operations/web-interface.md)
+- [FAQ / Troubleshooting](reference/faq.md)
